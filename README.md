@@ -8,9 +8,9 @@ Formulário para solicitação de orçamento em que a empresa contratante alugar
 
 - HTML5;
 - CSS3;
-- Javascript.
-- Jquery
-- reCAPTCHA V3
+- Javascript;
+- Jquery;
+- reCAPTCHA V3;
 
 ## Acesse o formulário:
 <a href="https://form-hubees.surge.sh/">Formulário</a>
