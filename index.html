@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netpark - Solicitação de Orçamento</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LezAfghAAAAANgugKIasvKryrQjJH9eXAd8he7f"></script>
+    <script>
+        grecaptcha.ready(() => {
+            grecaptcha.execute('6LezAfghAAAAANgugKIasvKryrQjJH9eXAd8he7f', {
+                action: 'calc'
+            }).then(token => {
+                console.info('token', token);
+                input_recaptcha.value = token;
+            }).catch(error => {
+                console.log({ internalCode: 131, message: 'erro no Google Recaptcha' });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var $campoCep = $("#addressZipCode");
+            $campoCep.mask('00000-000');
+        });
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <img id="imglogo" src="./assets/logo-netpark.svg" alt="logo netpark">
+        <h4>Um bom dia, todos os dias</h4>
+    </header>
+    <div id="headerform">
+        <h1> Vai organizar um evento e precisa de vagas de garagem para seus convidados? </h1>
+        <h2> Preencha o formulário abaixo e logo nossa equipe enviará o melhor orçamento para você </h2>
+    </div>
+    <section id="sectionform">
+        <form id="leadForm">
+            <fieldset class="fieldsetform">
+                <legend class="legendform">Dados da Empresa</legend>
+
+                <label for="businessName">
+                    <p>Nome</p>
+                    <input class="estinputs" id="businessName" name="businessName" type="text"
+                        placeholder="Nome da empresa" required>
+                    <small></small>
+                </label>
+
+                <label for="businessCnpj">
+                    <p>CNPJ</p>
+                    <input class="estinputs" id="businessCnpj" name="businessCnpj" type="text"
+                        placeholder="00.000.000/0000-00" pattern="\d{2}.?\d{3}.?\d{3}/?\d{4}-?\d{2}"
+                        title="preencha corretamente o CNPJ" required>
+                    <small></small>
+                </label>
+
+                <label for="businessEmail">
+                    <p>E-mail</p>
+                    <input class="estinputs" id="businessEmail" name="businessEmail" type="email"
+                        placeholder="empresa@empresa.com" required>
+                    <small></small>
+                </label>
+
+                <label for="businessPhone">
+                    <p>Telefone</p>
+                    <input class="estinputs" id="businessPhone" name="businessPhone" type="tel"
+                        placeholder="(XX) XXXX-XXXX" required>
+                    <small></small>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldsetform">
+                <legend class="legendform">Endereço</legend>
+
+                <label for="addressStreet">
+                    <p>Logradouro</p>
+                    <input class="estinputs" id="addressStreet" name="addressStreet" type="text"
+                        placeholder="Logradouro" required>
+                    <small></small>
+                </label>
+
+                <label for="addressNumber">
+                    <p>Número</p>
+                    <input class="estinputs" id="addressNumber" name="addressNumber" type="text" placeholder="Número"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="addressCity">
+                    <p>Cidade</p>
+                    <input class="estinputs" id="addressCity" name="addressCity" type="text" placeholder="Cidade"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="addressCountry">
+                    <p>País</p>
+                    <input class="estinputs" id="addressCountry" name="addressCountry" type="text" placeholder="País"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="addressState">
+                    <p>Estado</p>
+                    <input class="estinputs" id="addressState" name="addressState" type="text" placeholder="Estado"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="addressZipCode">
+                    <p>CEP</p>
+                    <input class="estinputs" id="addressZipCode" name="addressZipCode" type="text" placeholder="CEP"
+                        required>
+                    <small></small>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldsetform">
+                <legend class="legendform">Responsável pelo setor financeiro</legend>
+
+                <label for="financialName">
+                    <p>Nome</p>
+                    <input class="estinputs" id="financialName" name="financialName" type="text" placeholder="Nome"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="financialEmail">
+                    <p>E-mail</p>
+                    <input class="estinputs" id="financialEmail" name="financialEmail" type="email" placeholder="E-mail"
+                        required>
+                    <small></small>
+                </label>
+
+                <label for="financialPhone">
+                    <p>Telefone</p>
+                    <input class="estinputs" id="financialPhone" name="financialPhone" type="tel" placeholder="Telefone"
+                        required>
+                    <small></small>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldsetform">
+                <legend class="legendform">Dados da garagem a ser alugada e dados do evento</legend>
+
+                <label for="garageCode">
+                    <p>Código da garagem</p>
+                    <input class="estinputs" id="garageCode" name="garageCode" type="text"
+                        placeholder="Código da Garagem" onfocusout="garageCodeLength()" required>
+                    <small></small>
+                </label>
+
+                <label for="timeDayInitial">
+                    <p>Horário de Início</p>
+                    <input class="estinputs" id="timeDayInitial" name="timeDayInitial" type="time" required>
+                    <small></small>
+                </label>
+
+                <label for="timeDayFinal">
+                    <p>Horário de Término</p>
+                    <input class="estinputs" id="timeDayFinal" name="timeDayFinal" type="time" required>
+                    <small></small>
+                </label>
+
+                <label for="qtyGuest">
+                    <p>Quantidade de convidados</p>
+                    <input class="estinputs" id="qtyGuest" name="qtyGuest" type="number"
+                        placeholder="Número de convidados" required>
+                    <small></small>
+                </label>
+
+                <label for="eventDay">
+                    <p>Data</p>
+                    <input class="estinputs" id="eventDay" name="eventDay" type="date" required>
+                    <small></small>
+                </label>
+            </fieldset>
+
+            <fieldset class="fieldsetform">
+                <legend class="legendform">A empresa contratante será a empresa pagante?</legend>
+
+                <label for="outra-empresa">
+                    <p>Não</p>
+                    <input type="checkbox" id="outra-empresa" name="outra-empresa" onclick="marcaDesmarca(this)"> 
+                </label>
+            </fieldset>
+
+            <fieldset id="empresa-pagante" class="empresa-pagante">
+                <legend class="legendform">Caso a empresa pagante seja diferente da empresa contratante, preencha os
+                    dados a seguir
+                </legend>
+
+                <label for="payEmail">
+                    <p>E-mail da empresa</p>
+                    <input class="estinputs" id="payEmail" name="payEmail" type="email" placeholder="E-mail">
+                    <small></small>
+                </label>
+
+                <label for="payCompanyName">
+                    <p>Nome da empresa</p>
+                    <input class="estinputs" id="payCompanyName" name="payCompanyName" type="text" placeholder="Nome">
+                    <small></small>
+                </label>
+
+                <label for="payCompanyCnpj">
+                    <p>CNPJ</p>
+                    <input class="estinputs" id="payCompanyCnpj" name="payCompanyCnpj" type="text"
+                        placeholder="00.000.000/0000-00">
+                    <small></small>
+                </label>
+
+                <label for="payResponsibleName">
+                    <p>Nome do responsável</p>
+                    <input class="estinputs" id="payResponsibleName" name="payResponsibleName" type="text"
+                        placeholder="Nome">
+                    <small></small>
+                </label>
+
+                <label for="payResponsibleEmail">
+                    <p>E-mail do responsável</p>
+                    <input class="estinputs" id="payResponsibleEmail" name="payResponsibleEmail" type="email"
+                        placeholder="E-mail">
+                    <small></small>
+                </label>
+
+                <label for="generalObservations">
+                    <p>Observações gerais</p>
+                    <textarea class="estinputs" id="generalObservations" name="generalObservations" type="text"
+                        placeholder="Observações gerais"> </textarea>
+                    <small></small>
+                </label>
+            </fieldset>
+            <div id="butthr">
+                <button class="buttonsubmit" type="submit">Enviar</button>
+                <hr id="hrs" />
+            </div>
+        </form>
+    </section>
+
+    <div id="result"></div>
+
+    <footer id="footer">
+        <img id="imglogofooter" src="./assets/logo-netpark2.png" alt="logo netpark">
+    </footer>
+
+    <script src="./scripts/index.js" defer></script>
+</body>
