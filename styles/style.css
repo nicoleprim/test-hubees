@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+* {
+    margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#header {
+    background-color: #000A31;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h4 {
+    margin-right: 2rem;
+    color: white;
+}
+
+#imglogo {
+    width: 10rem;
+	height: 5rem;
+    margin-left: 2rem;
+}
+
+#headerform {  
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    color: #00fbe2;;
+    background-color: #000A31;
+    opacity: 0.9;
+    text-align: center;
+}
+
+#headerform h2 {
+    padding-top: 1rem;
+}
+
+#sectionform {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.fieldsetform{
+    border: none;
+    width: 98%;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.legendform{
+    color: #000A31;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.estinputs {
+    border: 1px solid rgba(0, 31, 63, 0.3);
+    padding: 0.825rem 1.1875rem;
+    margin: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #000a31;
+    background-color: transparent;
+    background-clip: padding-box;
+    appearance: none;
+    border-radius: 1.5625rem;
+    width: 20rem;
+}
+
+.fieldsetform p{
+    color: #000a31;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+#butthr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonsubmit{
+    color: #000a31;
+    font-weight: bold;
+    background-color: #00fbe2;
+    border-color: #00fbe2;
+    border: 1px solid transparent;
+    padding: 0.825rem 1.1875rem;
+    font-size: 1.125rem;
+    border-radius: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    width: 17rem;
+    cursor: pointer;
+}
+
+#hrs{
+    margin-bottom: 1rem;
+    width: 20rem;
+}
+
+.empresa-pagante {
+    display: none;
+    border: none;
+    width: 98%;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.empresa-pagante p {
+    color: #000a31;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+#footer {
+    background-color: #000A31;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+#imglogofooter {
+    width: 2rem;
+	height: 2rem;
+    margin-left: 2rem;
+}
+
+.success {
+    border-color: #2ecc71;
+}
+
+.fail {
+    color: red;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
