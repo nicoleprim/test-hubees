@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
+@media screen and (max-width: 600px) {
+    #header img{
+        width: 7rem;
+    }
+    #header h4 {
+        margin-right: 0.2rem;
+        color: white;
+        font-size: 0.8rem;
+    }
+    #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #headerform {  
+        font-size: 0.8em;
+    }
+    .fieldsetform{
+        display: flex;
+        flex-direction: column;
+    }
+    .legendform{
+        width: 15rem;
+        font-size: 0.5rem;
+        text-align: center;
+    }
+    .fieldsetform{
+        width: 10rem;
+
+        
+    }
+    .estinputs{
+        width: 0.1em;
+    }
+    
+    }
+
 * {
     margin: 0;
 	padding: 0;
